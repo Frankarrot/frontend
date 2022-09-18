@@ -1,24 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Home from "./Home";
+import OAuthGithubCallback from "./OAuthGithubCallback";
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>0
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" exact element={<Home/>}></Route>
+                <Route path="/callback/github" exact element={<OAuthGithubCallback/>}></Route>
+            </Routes>
+        </BrowserRouter>
     );
 }
 
